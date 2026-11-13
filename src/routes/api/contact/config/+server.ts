@@ -1,0 +1,1 @@
+import{json}from'@sveltejs/kit';export function GET(){const key=process.env.TURNSTILE_SITE_KEY||(import.meta.env.DEV?'1x00000000000000000000AA':'');return key?json({turnstileSiteKey:key}):json({error:'Contact form is unavailable.'},{status:503})}

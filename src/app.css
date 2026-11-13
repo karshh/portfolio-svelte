@@ -1,0 +1,74 @@
+@import "leaflet/dist/leaflet.css";
+@font-face { font-family: LucidaConsole; src: url('/assets/lucida_console.ttf'); font-display: swap; }
+:root { color: #101010; background: #fff; font-family: LucidaConsole, Monaco, monospace; font-size: 15px; }
+* { box-sizing: border-box; }
+html { min-width: 350px; overflow-x: hidden; }
+body { margin: 0; min-height: 100vh; line-height: 1.5; }
+a { color: #007bff; text-decoration: none; }
+a:hover { color: #0056b3; text-decoration: underline; }
+h1 { font-size: 2.5rem; } h2 { font-size: 2rem; } h3 { font-size: 1.75rem; } h4 { font-size: 1.5rem; }
+h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: .5rem; font-family: inherit; font-weight: 500; line-height: 1.2; }
+p { margin-top: 0; margin-bottom: 1rem; line-height: 1.5; }
+.container { width: 100%; max-width: 1140px; padding: 0 15px; margin: 0 auto; }
+.row { display: flex; flex-wrap: wrap; margin: 0 -15px; }
+.col { flex: 1; min-width: 0; padding: 0 15px; }
+.col-3 { width: 25%; padding: 0 15px; } .col-4 { width: 33.333%; padding: 0 15px; }
+.col-5 { width: 41.667%; padding: 0 15px; } .col-6 { width: 50%; padding: 0 15px; }
+.col-7 { width: 58.333%; padding: 0 15px; } .col-8 { width: 66.667%; padding: 0 15px; }
+.justify-center { justify-content: center; } .justify-around { justify-content: space-around; }
+.text-center { text-align: center; }
+.site-shell { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+.navbar { background: #262626; box-shadow: 0 2px 4px #0003; padding: .5rem 1rem; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 40px; }
+.brand { color: #fff; font-family: LucidaConsole, Monaco, monospace; font-size: 1.25rem; }
+.brand:hover, .nav-link:hover { color: #fff; text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 20px; }
+.nav-link { color: rgba(255,255,255,.58); text-transform: uppercase; padding: .5rem 0; }
+.nav-link.active, .nav-link:hover { color: #fff; }
+.nav-toggle { display: none; width: 44px; height: 38px; border: 1px solid rgba(255,255,255,.18); border-radius: .25rem; background: transparent; }
+.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after { display: block; width: 22px; height: 2px; margin: auto; background: rgba(255,255,255,.55); content: ""; }
+.nav-toggle span::before { transform: translateY(-7px); } .nav-toggle span::after { transform: translateY(5px); }
+.footer { padding-top: 20px; color: #f3f3f3; width: 100%; height: 60px; background: #202020; text-align: center; }
+.top-content, .middle-content { padding-top: 5em; }
+.banner { display: block; max-width: 100%; margin: 0 auto; }
+.middle-content { margin-top: 5em; padding-bottom: 4em; background: #404040; color: #f3f3f3; min-height: 350px; }
+.tech-panel { display: flex; align-items: center; justify-content: center; width: calc(100% - 8rem); max-width: 240px; aspect-ratio: 1; margin: 0 auto; padding: 10px; background: #262626; box-shadow: 1px 2px 1px 1px #0003; font-size: 5rem; color: #61dafb; }
+.weather-source { display: block; margin-bottom: 1rem; font-size: .7rem; }
+.retry { padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
+.page-content { padding-top: 3em; }
+.dark-section { padding: 4em 0; background: #404040; color: #f3f3f3; box-shadow: 0 2px 4px #0003; }
+.light-section { padding: 3em 0; }
+.summary { height: calc(100% - 20px); padding: 20px 20px 8px; margin-bottom: 20px; background: #fff; box-shadow: 1px 2px 1px 1px #0002; color: #101010; }
+.summary p { line-height: 1.15; }
+.badge { display: inline-block; margin: 8px; padding: 12px 18px; background: #262626; color: #f3f3f3; box-shadow: 1px 2px 1px #0002; }
+.project { padding: 1em 0; border-bottom: 1px solid #ddd; }
+.news-panel { display: block; margin-bottom: 10px; min-height: 90px; padding: 15px 20px 10px; background: #404040; color: #f3f3f3; box-shadow: 1px 2px 1px #0002; }
+.news-panel.featured { height: calc(100% - 10px); }
+.news-panel:hover { color: #fff; text-decoration: none; background: #494949; }
+.news-panel h6 { margin: 0 0 .7rem; font-size: 1rem; }
+.traffic { padding: 4em 0; background: #262626; color: #f3f3f3; }
+.map-shell { position: relative; }
+.leaflet-map { width: calc(100% - 40px); height: 500px; margin: 20px; color: #212529; z-index: 0; }
+.map-message { min-height: 2.5rem; margin: 0 20px; padding: .5rem; text-align: center; }
+.jumbotron { padding: 4rem 2rem; text-align: center; }
+.contact-links { padding: 50px 0; background: #404040; color: #f3f3f3; box-shadow: 0 2px 4px #0003; }
+.contact-card { display: block; margin-bottom: 20px; padding: 35px 30px; background: #f3f3f3; box-shadow: 1px 2px 1px #0002; transition: transform .15s; }
+.contact-card:hover { transform: translateY(-10px); }
+.brand-img { height: 30px; }
+.form-section { padding: 50px 0; background: #f3f3f3; }
+.form { max-width: 760px; }
+.form-group { margin-bottom: 1rem; }
+.form label { display: block; margin-bottom: .5rem; }
+.form-control { display: block; width: 100%; padding: .5rem .75rem; border: 1px solid #ced4da; border-radius: .25rem; font: inherit; }
+.form-control:focus { outline: 0; border-color: #80bdff; box-shadow: 0 0 0 .2rem #007bff40; }
+.btn { display: inline-block; padding: .5rem .75rem; border: 1px solid transparent; border-radius: .25rem; font: inherit; cursor: pointer; }
+.btn-dark { background: #272822; color: #fff; }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+.error { color: #b00020; }
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.turnstile { min-height: 65px; margin: 1.25rem 0; }
+.error-page { padding: 4rem 15px; }
+@media (max-width: 900px) { .col-3, .col-4 { width: 50%; } .col-5, .col-7 { width: 100%; } }
+@media (max-width: 600px) { .nav-inner { position: relative; flex-wrap: wrap; align-items: center; } .nav-toggle { display: block; } .nav-links { display: none; width: 100%; padding: .5rem 0; flex-direction: column; align-items: flex-start; gap: 0; } .nav-links.open { display: flex; } .nav-link { width: 100%; margin-left: 0; font-size: .9rem; } .col, .col-3, .col-4, .col-6, .col-8 { width: 100%; flex-basis: 100%; } .leaflet-map { width: calc(100% - 20px); height: 400px; margin: 10px; } .dark-section { padding: 3em 0; } }
+
