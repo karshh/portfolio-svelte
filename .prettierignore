@@ -1,0 +1,9 @@
+build
+.svelte-kit
+node_modules
+playwright-report
+test-results
+package-lock.json
+src/routes/visual.e2e.ts-snapshots
+static
+README 2.md

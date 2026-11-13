@@ -1,1 +1,14 @@
-import {getNews,getTraffic,getDetours} from '../../lib/server/data';export async function load(){const [news,traffic,detours]=await Promise.allSettled([getNews(),getTraffic(),getDetours()]);return{news:news.status==='fulfilled'?news.value:[],traffic:traffic.status==='fulfilled'?traffic.value:[],detours:detours.status==='fulfilled'?detours.value:[],newsError:news.status==='rejected'}}
+import { getNews, getTraffic, getDetours } from '../../lib/server/data';
+export async function load() {
+	const [news, traffic, detours] = await Promise.allSettled([
+		getNews(),
+		getTraffic(),
+		getDetours()
+	]);
+	return {
+		news: news.status === 'fulfilled' ? news.value : [],
+		traffic: traffic.status === 'fulfilled' ? traffic.value : [],
+		detours: detours.status === 'fulfilled' ? detours.value : [],
+		newsError: news.status === 'rejected'
+	};
+}

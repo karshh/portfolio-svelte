@@ -1,3 +1,84 @@
-<script lang="ts">import {onMount} from 'svelte';import {formatCalgaryTime} from '../../lib/time';let {data}=$props();let clock=$state('Loading…');onMount(()=>{const update=()=>clock=formatCalgaryTime(new Date());update();const timer=setInterval(update,500);return()=>clearInterval(timer)});</script>
-<section class="top-content"><div class="container text-center"><h3>{'{ name = Karsh }'}</h3><br><p>Welcome to my corner.</p><p>Here, I document my journey dedicated to excelling as a full-stack developer.</p><p>Check out my <a href="https://www.linkedin.com/in/karshsharma">linkedin</a> and <a href="https://github.com/karshh">github</a> profile.</p><br><div class="row"><div class="col-4"><p>⌖ Calgary, AB</p></div><div class="col-4"><p>◷ <span role="timer" aria-label="Calgary time" data-testid="calgary-clock">{clock}</span></p></div><div class="col-4"><p>♨ {#if data.weather}<span data-testid="temperature" title="{data.weather.station} · Observed {data.weather.observedAt}">{data.weather.temperatureC.toFixed(1)} °C</span>{:else}<span>Weather unavailable</span>{/if}</p><small class="weather-source">Data source: <a href="https://eccc-msc.github.io/open-data/licence/readme_en/">Environment and Climate Change Canada</a></small></div></div><br><br><img draggable="false" class="banner" src="/assets/img/calgary.svg" alt="Calgary skyline"></div></section>
-<section class="middle-content"><div class="container"><div class="row justify-center"><div class="col-8"><p>✓ Angular 9+</p><p>✓ Bootstrap 4.0</p><p>✓ Component oriented architecture.</p><p>✓ Utilization of real-time services through IoC.</p><p>✓ REST API interaction using Observables.</p><p>✓ Angular Google Maps plugin.</p><p>✓ Mailthis.to submission integration.</p></div><div class="col-4 text-center"><div class="tech-panel"><img src="/assets/img/angular.svg" alt="Angular"></div></div></div></div></section>
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { formatCalgaryTime } from '../../lib/time';
+	import type { PageProps } from './$types';
+
+	let { data }: PageProps = $props();
+	let clock = $state('Loading…');
+
+	onMount(() => {
+		const updateClock = () => (clock = formatCalgaryTime(new Date()));
+		updateClock();
+
+		const timer = window.setInterval(updateClock, 500);
+		return () => window.clearInterval(timer);
+	});
+</script>
+
+<section class="top-content">
+	<div class="container text-center">
+		<h3>{'{ name = Karsh }'}</h3>
+		<br />
+		<p>Welcome to my corner.</p>
+		<p>Here, I document my journey dedicated to excelling as a full-stack developer.</p>
+		<p>
+			Check out my <a href="https://www.linkedin.com/in/karshsharma">linkedin</a> and
+			<a href="https://github.com/karshh">github</a> profile.
+		</p>
+		<br />
+
+		<div class="row">
+			<div class="col-4"><p>⌖ Calgary, AB</p></div>
+			<div class="col-4">
+				<p>
+					◷ <span role="timer" aria-label="Calgary time" data-testid="calgary-clock">
+						{clock}
+					</span>
+				</p>
+			</div>
+			<div class="col-4">
+				<p>
+					♨
+					{#if data.weather}
+						<span
+							data-testid="temperature"
+							title="{data.weather.station} · Observed {data.weather.observedAt}"
+						>
+							{data.weather.temperatureC.toFixed(1)} °C
+						</span>
+					{:else}
+						<span>Weather unavailable</span>
+					{/if}
+				</p>
+				<small class="weather-source">
+					Data source:
+					<a href="https://eccc-msc.github.io/open-data/licence/readme_en/">
+						Environment and Climate Change Canada
+					</a>
+				</small>
+			</div>
+		</div>
+
+		<br /><br />
+		<img draggable="false" class="banner" src="/assets/img/calgary.svg" alt="Calgary skyline" />
+	</div>
+</section>
+
+<section class="middle-content">
+	<div class="container">
+		<div class="row justify-center">
+			<div class="col-8">
+				<p>✓ Angular 9+</p>
+				<p>✓ Bootstrap 4.0</p>
+				<p>✓ Component oriented architecture.</p>
+				<p>✓ Utilization of real-time services through IoC.</p>
+				<p>✓ REST API interaction using Observables.</p>
+				<p>✓ Angular Google Maps plugin.</p>
+				<p>✓ Mailthis.to submission integration.</p>
+			</div>
+			<div class="col-4 text-center">
+				<div class="tech-panel"><img src="/assets/img/angular.svg" alt="Angular" /></div>
+			</div>
+		</div>
+	</div>
+</section>

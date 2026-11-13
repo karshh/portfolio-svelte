@@ -1,1 +1,1 @@
-<svelte:head><meta name="robots" content="noindex"></svelte:head>
+<svelte:head><meta name="robots" content="noindex" /></svelte:head>

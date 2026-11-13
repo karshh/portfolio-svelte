@@ -1,2 +1,53 @@
-<script lang="ts">import{projects,skills}from '../../lib/portfolio';</script>
-<section class="container light-section text-center"><img draggable="false" class="banner" style="max-width:75%;padding-bottom:50px" src="/assets/img/heritageHall.svg" alt="SAIT Heritage Hall"><h2>Program</h2><p>🎓 SAIT</p><p>▣ Web Developer</p><p>◷ Jan. 2018 - April 2018</p></section><section class="dark-section"><div class="container text-center"><h2>Technical Summary</h2><br><div class="row justify-center">{#each skills as [title,list]}<div class="col-3"><div class="summary"><h5>{title}</h5><hr>{#each list as item}<p>{item}</p>{/each}</div></div>{/each}</div></div></section><section class="container light-section"><div class="text-center"><h2>Journey</h2></div><hr>{#each projects as project}<article class="project"><h4>{project.title}</h4><div>{#each project.skills as item}<span class="badge">{item}</span>{/each}</div><p>◷ {project.timeline}</p><p>⌘ <a href="https://{project.github}">{project.github}</a></p><p>▤ <a href="https://{project.website}">{project.website}</a></p>{#each project.paragraphs as paragraph}<p>{paragraph}</p>{/each}</article>{/each}</section>
+<script lang="ts">
+	import { projects, skills } from '../../lib/portfolio';
+</script>
+
+<section class="container light-section text-center">
+	<img
+		draggable="false"
+		class="banner"
+		style="max-width: 75%; padding-bottom: 50px"
+		src="/assets/img/heritageHall.svg"
+		alt="SAIT Heritage Hall"
+	/>
+	<h2>Program</h2>
+	<p>🎓 SAIT</p>
+	<p>▣ Web Developer</p>
+	<p>◷ Jan. 2018 - April 2018</p>
+</section>
+
+<section class="dark-section">
+	<div class="container text-center">
+		<h2>Technical Summary</h2>
+		<br />
+		<div class="row justify-center">
+			{#each skills as [title, items] (title)}
+				<div class="col-3">
+					<div class="summary">
+						<h5>{title}</h5>
+						<hr />
+						{#each items as item (item)}<p>{item}</p>{/each}
+					</div>
+				</div>
+			{/each}
+		</div>
+	</div>
+</section>
+
+<section class="container light-section">
+	<div class="text-center"><h2>Journey</h2></div>
+	<hr />
+
+	{#each projects as project (project.title)}
+		<article class="project">
+			<h4>{project.title}</h4>
+			<div>
+				{#each project.skills as item (item)}<span class="badge">{item}</span>{/each}
+			</div>
+			<p>◷ {project.timeline}</p>
+			<p>⌘ <a href="https://{project.github}">{project.github}</a></p>
+			<p>▤ <a href="https://{project.website}">{project.website}</a></p>
+			{#each project.paragraphs as paragraph (paragraph)}<p>{paragraph}</p>{/each}
+		</article>
+	{/each}
+</section>

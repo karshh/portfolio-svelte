@@ -1,1 +1,15 @@
-import{describe,expect,it}from'vitest';import{validateContactMessage}from'./contact';const valid={name:'Karsh',email:'k@example.com',subject:'Hello',message:'Hi',website:'',turnstileToken:'token'};describe('contact validation',()=>{it('accepts valid input',()=>expect(validateContactMessage(valid)).toMatchObject(valid));it('rejects bot input',()=>expect(validateContactMessage({...valid,website:'spam'})).toBeNull())})
+import { describe, expect, it } from 'vitest';
+import { validateContactMessage } from './contact';
+const valid = {
+	name: 'Karsh',
+	email: 'k@example.com',
+	subject: 'Hello',
+	message: 'Hi',
+	website: '',
+	turnstileToken: 'token'
+};
+describe('contact validation', () => {
+	it('accepts valid input', () => expect(validateContactMessage(valid)).toMatchObject(valid));
+	it('rejects bot input', () =>
+		expect(validateContactMessage({ ...valid, website: 'spam' })).toBeNull());
+});
